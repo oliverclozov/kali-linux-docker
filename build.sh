@@ -17,9 +17,6 @@ sudo debootstrap kali-rolling ./kali-root https://http.kali.org/kali ./kali-debo
 sudo tar -C kali-root -c . | sudo docker import - kalilinux/kali-linux-docker &&\
 sudo rm -rf ./kali-root &&\
 echo "Tagging kali" &&\
-TAG=$(sudo docker run -t -i kalilinux/kali-linux-docker awk '{print $NF}' /etc/debian_version | sed 's/\r$//' ) &&\
-echo "Tagging kali with $TAG" &&\
-#sudo docker tag kalilinux/kali-linux-docker:$VERSION kalilinux/kali-linux-docker:$TAG &&\
 sudo docker tag kalilinux/kali-linux-docker:$VERSION kaliregistry.azurecr.io/tcnetkali:v1 &&\
 echo "Labeling kali" &&\
 sudo docker build --squash --rm -t kalilinux/kali-linux-docker:$VERSION /bin/bash \
