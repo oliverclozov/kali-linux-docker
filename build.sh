@@ -16,9 +16,7 @@ curl "http://git.kali.org/gitweb/?p=packages/debootstrap.git;a=blob_plain;f=scri
 sudo debootstrap kali-rolling ./kali-root https://http.kali.org/kali ./kali-debootstrap &&\
 sudo tar -C kali-root -c . | sudo docker import - kalilinux/kali-linux-docker &&\
 sudo rm -rf ./kali-root &&\
-TAG=$(sudo docker run -it kalilinux/kali-linux-docker awk '{print $NF}' /etc/debian_version | sed 's/\r$//' ) &&\
-echo "Tagging kali with $TAG" &&\
-sudo docker tag kalilinux/kali-linux-docker:$VERSION kalilinux/kali-linux-docker:$TAG &&\
+sudo docker tag kalilinux/kali-linux-docker:$VERSION kaliregistry.azurecr.io/tcnetkali:v1 &&\
 echo "Labeling kali" &&\
 sudo docker build --squash -it kalilinux/kali-linux-docker:$VERSION /bin/bash \
 --build-arg BUILD_DATE=$BUILD_DATE \
