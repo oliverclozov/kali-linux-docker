@@ -19,7 +19,7 @@ VCS_REF=$(git rev-parse --short HEAD)
 echo "Tagging kali" &&\
 sudo docker tag kalilinux/kali-linux-docker:$VERSION kaliregistry.azurecr.io/tcnetkali:v1 &&\
 echo "Labeling kali" &&\
-sudo docker build --squash -it kalilinux/kali-linux-docker:$VERSION \
+sudo docker build --squash -t -i kalilinux/kali-linux-docker:$VERSION \
 --build-arg BUILD_DATE=$BUILD_DATE \
 --build-arg VERSION=$VERSION \
 --build-arg VCS_URL=$VCS_URL \
