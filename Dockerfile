@@ -17,10 +17,9 @@ LABEL io.tcsec-schema.build-date=$BUILD_DATE \
       io.tcsec-schema.schema-version='1.0' \
       io.tcsec-schema.docker.cmd='docker run -it kalilinux/kali-linux-docker /bin/bash' \
       io.tcsec-schema.docker.cmd.devel='docker run -it kalilinux/kali-linux-docker /bin/bash' \
-      io.tcsec-schema.docker.debug='docker logs $CONTAINER' \
+      io.tcsec-schema.docker.debug='docker logs $CONTAINER'
       #io.github.offensive-security.docker.dockerfile="Dockerfile" \
       #io.github.offensive-security.license="GPLv3" \
-      
 RUN echo "deb https://http.kali.org/kali kali-rolling main contrib non-free" > /etc/apt/sources.list && \
     echo "deb-src https://http.kali.org/kali kali-rolling main contrib non-free" >> /etc/apt/sources.list
 ENV DEBIAN_FRONTEND noninteractive
