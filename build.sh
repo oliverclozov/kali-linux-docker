@@ -17,7 +17,7 @@ VCS_REF=$(git rev-parse --short HEAD)
 #sudo tar -C kali-root -c . | sudo docker import - kalilinux/kali-linux-docker &&\
 #sudo rm -rf ./kali-root &&\
 echo "Tagging kali" &&\
-sudo docker tag kalilinux/kali-linux-docker:$VERSION kaliregistry.azurecr.io/tcnetkali:v1 &&\
+sudo docker tag kalilinux/kali-linux-docker:latest kaliregistry.azurecr.io/tcnetkali:v1 &&\
 echo "Labeling kali" &&\
 sudo docker build --squash -t kalilinux/kali-linux-docker:$VERSION \
 --build-arg BUILD_DATE=$BUILD_DATE \
